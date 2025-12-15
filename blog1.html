@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Core Java  Blog</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3135/3135755.png" type="image/png">
+
+  <!-- FontAwesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom Animations -->
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .fade {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.9s ease-out;
+    }
+    .fade.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .zoom-in {
+      opacity: 0;
+      transform: scale(0.95);
+      transition: all 1s ease-out;
+    }
+    .zoom-in.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+
+   /* Soft glow on hover */
+  .share-icon:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transform: scale(1.1);
+  }
+  </style>
+</head>
+
+<body class="bg-gray-100 text-gray-900 transition">
+
+  <!-- 🌙 DARK MODE BUTTON -->
+  <button id="darkToggle"
+    class="fixed top-5 right-5 z-50 p-3 bg-gray-800 text-white rounded-full shadow-lg hover:bg-black transition">
+    🌙
+  </button>
+
+  <div class="flex max-w-6xl mx-auto">
+
+    <!-- 📌 TABLE OF CONTENTS (Left Sidebar) -->
+    <div class="hidden lg:block w-1/4 sticky top-20 h-screen p-4">
+      <h3 class="text-xl font-bold mb-4">📚 Contents</h3>
+      <ul class="space-y-3 text-gray-700" id="toc"></ul>
+    </div>
+
+    <!-- 📄 MAIN CONTENT -->
+    <div class="w-full lg:w-2/4 mx-auto p-4 sm:p-6">
+
+      <!-- Banner Image with animation -->
+      <img src="img/Screenshot 2025-12-10 195105.png"
+        class="rounded-2xl mt-4 shadow-xl border border-gray-300 zoom-in w-full" />
+
+      <!-- 👤 Floating Author Card -->
+      <div class="fixed bottom-5 left-5 bg-white shadow-xl border p-4 rounded-xl flex items-center gap-4 fade w-64"
+        id="authorCard">
+        <img src="img/WhatsApp_Image_2025-08-26_at_19.50.42_a4c1b557-removebg-preview.png"
+          class="w-14 h-14 rounded-full border" />
+        <div>
+          <p class="font-bold">Vishal</p>
+          <p class="text-gray-500 text-sm">Dec 2025</p>
+        </div>
+      </div>
+
+      <!-- Blog Content -->
+      <div class="mt-8 leading-7 space-y-6 text-lg fade blog-content">
+
+        <h2 class="text-3xl font-bold" id="intro">Introduction to Core Java</h2>
+        <p>Core Java is the foundation of Java programming...</p>
+
+        <h2 class="text-3xl font-bold" id="why">Why Learn Core Java?</h2>
+        <ul class="list-disc ml-6 space-y-2">
+          <li>Strong foundation for advanced Java</li>
+          <li>Platform Independent</li>
+          <li>Supports OOP</li>
+        </ul>
+
+        <h2 class="text-3xl font-bold" id="features">Features of Java</h2>
+        <ul class="list-disc ml-6 space-y-2">
+          <li>Object-Oriented</li>
+          <li>Multithreaded</li>
+        </ul>
+
+        <h2 class="text-3xl font-bold" id="oop">OOP Concepts</h2>
+        <ul class="list-disc ml-6 space-y-2">
+          <li>Encapsulation</li>
+          <li>Inheritance</li>
+        </ul>
+
+        <h2 class="text-3xl font-bold" id="program">Basic Java Program</h2>
+        <pre class="bg-gray-900 text-white p-4 rounded-xl overflow-x-auto">
+public class Hello {
+  public static void main(String[] args) {
+    System.out.println("Hello Java");
+  }
+}
+        </pre>
+
+
+        <h2 class="text-3xl font-bold" id="interface">Interface in Java</h2>
+<p>
+  An interface in Java is a blueprint of a class. It contains only abstract methods (until Java 8)
+  and is used to achieve 100% abstraction and multiple inheritance.
+</p>
+
+<h3 class="text-xl font-semibold">Characteristics:</h3>
+<ul class="list-disc ml-6 space-y-2">
+  <li>Contains abstract methods (Java 8+ → default & static allowed)</li>
+  <li>Variables are <strong>public, static, final</strong> by default</li>
+  <li>A class can implement multiple interfaces</li>
+</ul>
+
+<pre class="bg-gray-900 text-white p-4 rounded-xl overflow-x-auto">
+interface Vehicle {
+  void start();
+}
+
+class Car implements Vehicle {
+  public void start() {
+    System.out.println("Car starts!");
+  }
+}
+</pre>
+
+
+<h2 class="text-3xl font-bold" id="casting">Type Casting in Java</h2>
+<p>
+  Type casting converts one data type into another. Java supports <strong>implicit</strong> and <strong>explicit</strong> casting.
+</p>
+
+<h3 class="text-xl font-semibold">1. Implicit Casting (Widening)</h3>
+<p>Smaller → Larger datatype (Automatic)</p>
+
+<pre class="bg-gray-900 text-white p-4 rounded-xl overflow-x-auto">
+int a = 10;
+double b = a;  // int → double
+</pre>
+
+<h3 class="text-xl font-semibold">2. Explicit Casting (Narrowing)</h3>
+<p>Larger → Smaller datatype (Manual)</p>
+
+<pre class="bg-gray-900 text-white p-4 rounded-xl overflow-x-auto">
+double x = 20.8;
+int y = (int) x;  // double → int
+</pre>
+
+
+<h2 class="text-3xl font-bold" id="constructor">Constructors in Java</h2>
+<p>
+  A constructor is a special method used to initialize objects. It has the same name as the class
+  and no return type.
+</p>
+
+<ul class="list-disc ml-6 space-y-2">
+  <li><strong>Default constructor</strong></li>
+  <li><strong>Parameterized constructor</strong></li>
+  <li><strong>Copy constructor (manual)</strong></li>
+</ul>
+
+<pre class="bg-gray-900 text-white p-4 rounded-xl overflow-x-auto">
+class Student {
+  String name;
+
+  Student() {  
+    name = "Unknown";  
+  }
+
+  Student(String n) {
+    name = n;
+  }
+}
+</pre>
+
+
+<h2 class="text-3xl font-bold" id="inheritance">Inheritance in Java</h2>
+<p>
+  Inheritance allows one class to acquire properties of another.
+</p>
+
+<ul class="list-disc ml-6 space-y-2">
+  <li>Single Inheritance</li>
+  <li>Multilevel Inheritance</li>
+  <li>Hierarchical Inheritance</li>
+</ul>
+
+<pre class="bg-gray-900 text-white p-4 rounded-xl overflow-x-auto">
+class A {
+  void displayA() { System.out.println("A"); }
+}
+
+class B extends A {
+  void displayB() { System.out.println("B"); }
+}
+</pre>
+
+<h2 class="text-3xl font-bold" id="polymorphism">Polymorphism in Java</h2>
+<p>
+  Polymorphism means "many forms". It allows the same method to behave differently.
+</p>
+
+<h3 class="text-xl font-semibold">1. Method Overloading (Compile-time)</h3>
+<pre class="bg-gray-900 text-white p-4 rounded-xl overflow-x-auto">
+void sum(int a, int b) {}
+void sum(double a, double b) {}
+</pre>
+
+<h3 class="text-xl font-semibold">2. Method Overriding (Run-time)</h3>
+<pre class="bg-gray-900 text-white p-4 rounded-xl overflow-x-auto">
+class A { void show() {} }
+class B extends A { void show() {} }
+</pre>
+
+<h2 class="text-3xl font-bold" id="abstract">Abstract Class</h2>
+<p>
+  Abstract classes cannot be instantiated. They contain abstract + non-abstract methods.
+</p>
+
+<pre class="bg-gray-900 text-white p-4 rounded-xl overflow-x-auto">
+abstract class Animal {
+  abstract void sound();
+}
+
+class Dog extends Animal {
+  void sound() { System.out.println("Bark"); }
+}
+</pre>
+
+
+<h2 class="text-3xl font-bold" id="string">String in Java</h2>
+<p>
+  String is a non-primitive, immutable class used for storing text.
+</p>
+
+<ul class="list-disc ml-6 space-y-2">
+  <li>Immutable</li>
+  <li>Stored in SCP (String Constant Pool)</li>
+  <li>String methods → length(), concat(), toUpperCase(), equals()</li>
+</ul>
+
+<pre class="bg-gray-900 text-white p-4 rounded-xl overflow-x-auto">
+String name = "Vishal";
+System.out.println(name.toUpperCase());
+</pre>
+
+<h2 class="text-3xl font-bold" id="collections">Collections Framework</h2>
+<p>
+  Collections are used to store and manipulate groups of objects.
+</p>
+
+<ul class="list-disc ml-6 space-y-2">
+  <li>List → ArrayList, LinkedList</li>
+  <li>Set → HashSet, TreeSet</li>
+  <li>Map → HashMap, TreeMap</li>
+</ul>
+
+<pre class="bg-gray-900 text-white p-4 rounded-xl overflow-x-auto">
+ArrayList<String> list = new ArrayList<>();
+list.add("A");
+list.add("B");
+</pre>
+
+<h2 class="text-3xl font-bold" id="threads">Multithreading</h2>
+<p>
+  Multithreading allows execution of multiple tasks simultaneously.
+</p>
+
+<ul class="list-disc ml-6 space-y-2">
+  <li>Thread class</li>
+  <li>Runnable interface</li>
+  <li>Synchronization</li>
+</ul>
+
+<pre class="bg-gray-900 text-white p-4 rounded-xl overflow-x-auto">
+class MyThread extends Thread {
+  public void run() {
+    System.out.println("Thread running...");
+  }
+}
+</pre>
+
+<h2 class="text-3xl font-bold" id="filehandling">File Handling in Java</h2>
+<p>
+  Java provides classes for reading and writing files.
+</p>
+
+<ul class="list-disc ml-6 space-y-2">
+  <li>FileReader</li>
+  <li>FileWriter</li>
+  <li>BufferedReader</li>
+</ul>
+
+<pre class="bg-gray-900 text-white p-4 rounded-xl overflow-x-auto">
+FileWriter fw = new FileWriter("demo.txt");
+fw.write("Hello Java!");
+fw.close();
+</pre>
+
+
+        <h2 class="text-3xl font-bold" id="conclusion">Conclusion</h2>
+        <p>Core Java is the base of Java programming...</p>
+
+      </div>
+
+  <div class="mt-10 text-center">
+  <h2 class="text-xl font-bold mb-4">Share this article:</h2>
+
+  <div class="flex justify-center gap-6">
+
+    <!-- Email -->
+    <a href="mailto:vishaldeshmukh7972@gmail.com" title="Email"
+       class="p-4 text-2xl rounded-full border border-red-600 text-red-600 hover:bg-red-600 hover:text-white transition-all duration-300 share-icon">
+      <i class="fas fa-envelope"></i>
+    </a>
+
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/in/vishal-deshmukh79/" target="_blank" title="LinkedIn"
+       class="p-4 text-2xl rounded-full border border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-white transition-all duration-300 share-icon">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+
+    <!-- GitHub -->
+    <a href="https://github.com/vishaldeshmukh34" target="_blank" title="GitHub"
+       class="p-4 text-2xl rounded-full border border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white transition-all duration-300 share-icon">
+      <i class="fab fa-github"></i>
+    </a>
+
+    <!-- Instagram -->
+    <a href="https://instagram.com/vishak_deshmukh_18" target="_blank" title="Instagram"
+       class="p-4 text-2xl rounded-full border border-pink-600 text-pink-600 hover:bg-pink-600 hover:text-white transition-all duration-300 share-icon">
+      <i class="fab fa-instagram"></i>
+    </a>
+
+  </div>
+</div>
+
+      <!-- 💬 COMMENT SECTION -->
+      <div class="mt-10 p-6 bg-white rounded-xl shadow fade">
+        <h2 class="text-2xl font-bold mb-3">💬 Comments</h2>
+
+        <textarea id="commentBox"
+          class="w-full p-3 border rounded-lg"
+          placeholder="Write a comment..."></textarea>
+
+        <button id="postComment"
+          class="mt-3 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+          Post Comment
+        </button>
+
+        <div id="commentList" class="mt-5 space-y-4"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 🔥 Scripts -->
+  <script>
+    // SCROLL APPEAR ANIMATIONS
+    const fadeElements = document.querySelectorAll(".fade, .zoom-in");
+    function reveal() {
+      fadeElements.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 50) el.classList.add("show");
+      });
+    }
+    window.addEventListener("scroll", reveal);
+    window.onload = reveal;
+
+    // DARK MODE TOGGLE
+    const btn = document.getElementById("darkToggle");
+    btn.onclick = () => {
+      document.body.classList.toggle("bg-gray-900");
+      document.body.classList.toggle("text-white");
+      btn.innerText = btn.innerText === "🌙" ? "☀️" : "🌙";
+    };
+
+    // TABLE OF CONTENTS AUTO-GENERATION
+    const toc = document.getElementById("toc");
+    document.querySelectorAll(".blog-content h2").forEach(h => {
+      const li = document.createElement("li");
+      li.innerHTML = `<a href="#${h.id}" class="hover:text-blue-600">${h.innerText}</a>`;
+      toc.appendChild(li);
+    });
+
+    // COMMENT SYSTEM
+    const postBtn = document.getElementById("postComment");
+    const list = document.getElementById("commentList");
+
+    postBtn.onclick = () => {
+      let text = document.getElementById("commentBox").value;
+      if (text.trim() === "") return;
+
+      let div = document.createElement("div");
+      div.className = "p-3 bg-gray-100 rounded";
+      div.innerText = text;
+
+      list.appendChild(div);
+      document.getElementById("commentBox").value = "";
+    };
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Core Java Blog</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3135/3135755.png" type="image/png">
+
+  <!-- FontAwesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom Animations -->
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .fade {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.9s ease-out;
+    }
+    .fade.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .zoom-in {
+      opacity: 0;
+      transform: scale(0.95);
+      transition: all 1s ease-out;
+    }
+    .zoom-in.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+
+   /* Soft glow on hover */
+  .share-icon:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transform: scale(1.1);
+  }
+  </style>
+</head>
+
+<body class="bg-gray-100 text-gray-900 transition">
+
+  <!-- 🌙 DARK MODE BUTTON -->
+  <button id="darkToggle"
+    class="fixed top-5 right-5 z-50 p-3 bg-gray-800 text-white rounded-full shadow-lg hover:bg-black transition">
+    🌙
+  </button>
+
+  <div class="flex max-w-6xl mx-auto">
+
+    <!-- 📌 TABLE OF CONTENTS (Left Sidebar) -->
+    <div class="hidden lg:block w-1/4 sticky top-20 h-screen p-4">
+      <h3 class="text-xl font-bold mb-4">📚 Contents</h3>
+      <ul class="space-y-3 text-gray-700" id="toc"></ul>
+    </div>
+
+    <!-- 📄 MAIN CONTENT -->
+    <div class="w-full lg:w-2/4 mx-auto p-4 sm:p-6">
+
+      <!-- Banner Image with animation -->
+      <img src="img/javascript.webp"
+        class="rounded-2xl mt-4 shadow-xl border border-gray-300 zoom-in w-full" />
+
+      <!-- 👤 Floating Author Card -->
+      <div class="fixed bottom-5 left-5 bg-white shadow-xl border p-4 rounded-xl flex items-center gap-4 fade w-64"
+        id="authorCard">
+        <img src="img/WhatsApp_Image_2025-08-26_at_19.50.42_a4c1b557-removebg-preview.png"
+          class="w-14 h-14 rounded-full border" />
+        <div>
+          <p class="font-bold">Vishal</p>
+          <p class="text-gray-500 text-sm">Dec 2025</p>
+        </div>
+      </div>
+ 
+   <div class="mt-8 leading-7 space-y-6 text-lg fade blog-content">
+
+  <h2 class="text-3xl font-bold" id="intro">Introduction to JavaScript</h2>
+  <p>
+    JavaScript is a lightweight, powerful, and high-level programming language that allows developers
+    to make websites interactive. It is one of the core technologies of the web, along with HTML and CSS.
+    JavaScript runs directly inside the browser and is essential for modern web development.
+  </p>
+
+  <h2 class="text-3xl font-bold" id="why">Why Learn JavaScript?</h2>
+  <ul class="list-disc ml-6 space-y-2">
+    <li>Most demanding skill in Web Development</li>
+    <li>Runs on both frontend and backend (Node.js)</li>
+    <li>Easy to learn and extremely beginner-friendly</li>
+    <li>Used in top frameworks like React, Angular, Vue</li>
+    <li>Massive community support and job opportunities</li>
+  </ul>
+
+  <h2 class="text-3xl font-bold" id="features">Key Features of JavaScript</h2>
+  <ul class="list-disc ml-6 space-y-2">
+    <li>Event-driven programming</li>
+    <li>Dynamic typing</li>
+    <li>Supports OOP (Object-Oriented Programming)</li>
+    <li>Asynchronous programming using Promises & async/await</li>
+    <li>Runs on every device with a browser</li>
+  </ul>
+
+  <h2 class="text-3xl font-bold" id="basics">JavaScript Basics</h2>
+  <p>JavaScript provides variables, operators, data types, functions, and control statements.</p>
+
+  <pre class="bg-gray-900 text-white p-4 rounded-xl overflow-x-auto">
+let name = "Vishal";
+console.log("Hello " + name);
+
+function add(a, b) {
+  return a + b;
+}
+console.log(add(5, 3));
+  </pre>
+
+  <h2 class="text-3xl font-bold" id="dom">JavaScript & DOM</h2>
+  <p>
+    DOM (Document Object Model) allows JavaScript to interact with HTML elements — change text, style,
+    structure, and respond to user actions.
+  </p>
+
+  <pre class="bg-gray-900 text-white p-4 rounded-xl overflow-x-auto">
+document.getElementById("title").innerText = "JavaScript is Amazing!";
+document.body.style.backgroundColor = "lightyellow";
+  </pre>
+
+  <h2 class="text-3xl font-bold" id="events">Events in JavaScript</h2>
+  <p>JavaScript responds to user actions like click, mouseover, keypress, scroll, etc.</p>
+
+  <pre class="bg-gray-900 text-white p-4 rounded-xl overflow-x-auto">
+document.getElementById("btn").addEventListener("click", () => {
+  alert("Button Clicked!");
+});
+  </pre>
+
+  <h2 class="text-3xl font-bold" id="oop">OOP in JavaScript</h2>
+  <p>JavaScript supports classes, objects, inheritance, and encapsulation.</p>
+
+  <pre class="bg-gray-900 text-white p-4 rounded-xl overflow-x-auto">
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+  greet() {
+    console.log("Hello " + this.name);
+  }
+}
+
+let user = new Person("Vishal");
+user.greet();
+  </pre>
+
+  <h2 class="text-3xl font-bold" id="async">Asynchronous JavaScript</h2>
+  <p>
+    JavaScript supports asynchronous programming using <strong>callbacks</strong>, <strong>promises</strong>,
+    and <strong>async/await</strong>.
+  </p>
+
+  <pre class="bg-gray-900 text-white p-4 rounded-xl overflow-x-auto">
+async function fetchData() {
+  let res = await fetch("https://api.example.com/data");
+  let data = await res.json();
+  console.log(data);
+}
+fetchData();
+  </pre>
+
+  <h2 class="text-3xl font-bold" id="frameworks">Popular JavaScript Frameworks</h2>
+  <ul class="list-disc ml-6 space-y-2">
+    <li>React.js – Most popular UI library</li>
+    <li>Vue.js – Easy & beginner-friendly framework</li>
+    <li>Angular – Powerful enterprise-level framework</li>
+    <li>Node.js – JavaScript on the server</li>
+  </ul>
+
+  <h2 class="text-3xl font-bold" id="projects">Simple JavaScript Example</h2>
+  <pre class="bg-gray-900 text-white p-4 rounded-xl overflow-x-auto">
+function changeText() {
+  document.getElementById("demo").innerHTML = "Text Changed using JavaScript!";
+}
+  </pre>
+
+  <h2 class="text-3xl font-bold" id="conclusion">Conclusion</h2>
+  <p>
+    JavaScript is the heart of modern web development. If you want to build websites, apps, or become a
+    full-stack developer, mastering JavaScript is essential. It is powerful, flexible, and used everywhere.
+  </p>
+
+</div>
+
+
+<h2 class="text-3xl font-bold" id="datatypes">JavaScript Data Types</h2>
+<p>JavaScript provides different data types to store values. They are divided into Primitive and Non-Primitive.</p>
+
+<h3 class="text-xl font-semibold">Primitive Types:</h3>
+<ul class="list-disc ml-6 space-y-2">
+  <li>String</li>
+  <li>Number</li>
+  <li>Boolean</li>
+  <li>Undefined</li>
+  <li>Null</li>
+  <li>BigInt</li>
+  <li>Symbol</li>
+</ul>
+
+<pre class="bg-gray-900 text-white p-4 rounded-xl overflow-x-auto">
+let name = "Vishal";
+let age = 21;
+let isActive = true;
+</pre>
+
+
+<h2 class="text-3xl font-bold" id="operators">JavaScript Operators</h2>
+<p>Operators are used to perform operations on variables and values.</p>
+
+<ul class="list-disc ml-6 space-y-2">
+  <li>Arithmetic Operators (+, -, *, /)</li>
+  <li>Assignment Operators (=, +=, -=)</li>
+  <li>Comparison Operators (==, ===, >, <)</li>
+  <li>Logical Operators (&&, ||, !)</li>
+  <li>Ternary Operator</li>
+</ul>
+
+<pre class="bg-gray-900 text-white p-4 rounded-xl overflow-x-auto">
+let x = 10;
+let y = 20;
+console.log(x + y);
+console.log(x > y ? "X is big" : "Y is big");
+</pre>
+<h2 class="text-3xl font-bold" id="arrays">JavaScript Arrays</h2>
+<p>Arrays are used to store multiple values in a single variable.</p>
+
+<pre class="bg-gray-900 text-white p-4 rounded-xl overflow-x-auto">
+let fruits = ["Apple", "Banana", "Mango"];
+
+fruits.push("Orange");
+console.log(fruits);
+</pre>
+
+<h3 class="text-xl font-semibold">Array Methods:</h3>
+<ul class="list-disc ml-6 space-y-2">
+  <li>push() / pop()</li>
+  <li>shift() / unshift()</li>
+  <li>map()</li>
+  <li>filter()</li>
+  <li>reduce()</li>
+</ul>
+<h2 class="text-3xl font-bold" id="functions">Functions in JavaScript</h2>
+<p>Functions are blocks of code designed to perform a specific task.</p>
+
+<pre class="bg-gray-900 text-white p-4 rounded-xl overflow-x-auto">
+// Normal function
+function greet() {
+  return "Hello Vishal!";
+}
+
+// Arrow function
+const greet2 = () => "Hello from Arrow Function!";
+
+console.log(greet());
+console.log(greet2());
+</pre>
+
+<h2 class="text-3xl font-bold" id="objects">JavaScript Objects</h2>
+<p>Objects store data in key-value pairs.</p>
+
+<pre class="bg-gray-900 text-white p-4 rounded-xl overflow-x-auto">
+const student = {
+  name: "Vishal",
+  age: 21,
+  course: "BCA",
+  greet() {
+    console.log("Hello, " + this.name);
+  }
+};
+
+student.greet();
+</pre>
+
+<h2 class="text-3xl font-bold" id="es6">Modern JavaScript (ES6+)</h2>
+<p>ES6 introduced powerful features to simplify coding.</p>
+
+<ul class="list-disc ml-6 space-y-2">
+  <li>let, const</li>
+  <li>Template Literals (`${value}`)</li>
+  <li>Destructuring</li>
+  <li>Spread and Rest operators (...)</li>
+  <li>Classes</li>
+</ul>
+
+<pre class="bg-gray-900 text-white p-4 rounded-xl overflow-x-auto">
+const { name, age } = student;
+console.log(name, age);
+
+const nums = [1, 2, 3];
+const newNums = [...nums, 4, 5];
+console.log(newNums);
+</pre>
+
+<h2 class="text-3xl font-bold" id="localstorage">Local Storage</h2>
+<p>LocalStorage stores data inside the browser permanently (until deleted).</p>
+
+<pre class="bg-gray-900 text-white p-4 rounded-xl overflow-x-auto">
+// Save data
+localStorage.setItem("username", "Vishal");
+
+// Get data
+console.log(localStorage.getItem("username"));
+
+// Remove data
+localStorage.removeItem("username");
+</pre>
+
+<h2 class="text-3xl font-bold" id="fetch">Fetch API</h2>
+<p>Fetch API is used to get data from a server.</p>
+
+<pre class="bg-gray-900 text-white p-4 rounded-xl overflow-x-auto">
+fetch("https://jsonplaceholder.typicode.com/posts")
+  .then(res => res.json())
+  .then(data => console.log(data));
+</pre>
+
+<h2 class="text-3xl font-bold" id="error">Error Handling</h2>
+<p>JavaScript uses try...catch to handle errors.</p>
+
+<pre class="bg-gray-900 text-white p-4 rounded-xl overflow-x-auto">
+try {
+  let a = undefinedVariable;
+} catch (error) {
+  console.log("Error found: " + error);
+}
+</pre>
+
+<h2 class="text-3xl font-bold" id="best">JavaScript Best Practices</h2>
+<ul class="list-disc ml-6 space-y-2">
+  <li>Use meaningful variable names</li>
+  <li>Use const and let instead of var</li>
+  <li>Write clean and readable code</li>
+  <li>Keep functions short</li>
+  <li>Avoid global variables</li>
+</ul>
+
+
+  <div class="mt-10 text-center">
+  <h2 class="text-xl font-bold mb-4">Share this article:</h2>
+
+  <div class="flex justify-center gap-6">
+
+    <!-- Email -->
+    <a href="mailto:vishaldeshmukh7972@gmail.com" title="Email"
+       class="p-4 text-2xl rounded-full border border-red-600 text-red-600 hover:bg-red-600 hover:text-white transition-all duration-300 share-icon">
+      <i class="fas fa-envelope"></i>
+    </a>
+
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/in/vishal-deshmukh79/" target="_blank" title="LinkedIn"
+       class="p-4 text-2xl rounded-full border border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-white transition-all duration-300 share-icon">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+
+    <!-- GitHub -->
+    <a href="https://github.com/vishaldeshmukh34" target="_blank" title="GitHub"
+       class="p-4 text-2xl rounded-full border border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white transition-all duration-300 share-icon">
+      <i class="fab fa-github"></i>
+    </a>
+
+    <!-- Instagram -->
+    <a href="https://instagram.com/vishak_deshmukh_18" target="_blank" title="Instagram"
+       class="p-4 text-2xl rounded-full border border-pink-600 text-pink-600 hover:bg-pink-600 hover:text-white transition-all duration-300 share-icon">
+      <i class="fab fa-instagram"></i>
+    </a>
+
+  </div>
+</div>
+
+      <!-- 💬 COMMENT SECTION -->
+      <div class="mt-10 p-6 bg-white rounded-xl shadow fade">
+        <h2 class="text-2xl font-bold mb-3">💬 Comments</h2>
+
+        <textarea id="commentBox"
+          class="w-full p-3 border rounded-lg"
+          placeholder="Write a comment..."></textarea>
+
+        <button id="postComment"
+          class="mt-3 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+          Post Comment
+        </button>
+
+        <div id="commentList" class="mt-5 space-y-4"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 🔥 Scripts -->
+  <script>
+    // SCROLL APPEAR ANIMATIONS
+    const fadeElements = document.querySelectorAll(".fade, .zoom-in");
+    function reveal() {
+      fadeElements.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 50) el.classList.add("show");
+      });
+    }
+    window.addEventListener("scroll", reveal);
+    window.onload = reveal;
+
+    // DARK MODE TOGGLE
+    const btn = document.getElementById("darkToggle");
+    btn.onclick = () => {
+      document.body.classList.toggle("bg-gray-900");
+      document.body.classList.toggle("text-white");
+      btn.innerText = btn.innerText === "🌙" ? "☀️" : "🌙";
+    };
+
+    // TABLE OF CONTENTS AUTO-GENERATION
+    const toc = document.getElementById("toc");
+    document.querySelectorAll(".blog-content h2").forEach(h => {
+      const li = document.createElement("li");
+      li.innerHTML = `<a href="#${h.id}" class="hover:text-blue-600">${h.innerText}</a>`;
+      toc.appendChild(li);
+    });
+
+    // COMMENT SYSTEM
+    const postBtn = document.getElementById("postComment");
+    const list = document.getElementById("commentList");
+
+    postBtn.onclick = () => {
+      let text = document.getElementById("commentBox").value;
+      if (text.trim() === "") return;
+
+      let div = document.createElement("div");
+      div.className = "p-3 bg-gray-100 rounded";
+      div.innerText = text;
+
+      list.appendChild(div);
+      document.getElementById("commentBox").value = "";
+    };
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tailwind CSS Blog</title>
+<link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3135/3135755.png" type="image/png">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Animation Styles -->
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.9s ease-out;
+    }
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .zoom {
+      opacity: 0;
+      transform: scale(0.92);
+      transition: all 1s ease-out;
+    }
+    .zoom.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition duration-500">
+
+  <!-- Dark Mode Button -->
+  <button id="darkToggle"
+    class="fixed top-6 right-6 z-50 p-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-full shadow-lg hover:scale-110 transition">
+    🌙
+  </button>
+
+  <div class="max-w-3xl mx-auto p-6">
+
+    <!-- Banner Image -->
+    <div class="overflow-hidden rounded-2xl shadow-xl mt-6 border border-gray-300 dark:border-gray-700">
+      <img src="img/taiwindcss.jpeg"
+        class="w-full rounded-2xl zoom hover:scale-105 transition duration-700" />
+    </div>
+
+    <!-- Author Card -->
+    <div class="flex items-center mt-5 space-x-4 fade-up bg-white dark:bg-gray-800 shadow-md p-3 rounded-xl border border-gray-200 dark:border-gray-700">
+      <img src="img/WhatsApp_Image_2025-08-26_at_19.50.42_a4c1b557-removebg-preview.png"
+        class="w-14 h-14 rounded-full object-cover border shadow-md" />
+      <div>
+        <p class="font-semibold text-gray-700 dark:text-gray-300 text-lg">By Vishal</p>
+        <p class="text-gray-500 dark:text-gray-400 text-sm">Dec 2025</p>
+      </div>
+    </div>
+
+    <!-- Blog Content -->
+    <div class="mt-8 leading-8 space-y-8 text-lg fade-up">
+
+      <h1 class="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+        Tailwind CSS – Complete Notes
+      </h1>
+
+      <p class="text-gray-700 dark:text-gray-300">
+        Tailwind CSS is a utility-first CSS framework used to build beautiful,
+        modern, responsive UI very quickly with predefined classes.
+      </p>
+
+      <!-- Section -->
+      <h2 class="text-3xl font-bold">What is Tailwind CSS?</h2>
+      <p>
+        Tailwind provides utility classes like 
+        <code class="bg-gray-200 dark:bg-gray-700 px-1 rounded">p-4</code>,
+        <code class="bg-gray-200 dark:bg-gray-700 px-1 rounded">mt-6</code>,
+        <code class="bg-gray-200 dark:bg-gray-700 px-1 rounded">text-center</code>
+        to style elements directly in your HTML.
+      </p>
+
+      <!-- Section -->
+      <h2 class="text-3xl font-bold">Why Tailwind CSS?</h2>
+      <ul class="list-disc ml-6 space-y-2">
+        <li>Fast development</li>
+        <li>Highly customizable</li>
+        <li>Mobile Responsive by default</li>
+        <li>No need to write custom CSS</li>
+        <li>Modern utility-first approach</li>
+      </ul>
+
+      <!-- Section -->
+      <h2 class="text-3xl font-bold">Installation Methods</h2>
+
+      <h3 class="text-xl font-semibold">1. CDN Method</h3>
+      <pre class="bg-gray-900 text-white p-4 rounded-xl shadow overflow-x-auto">
+&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;
+      </pre>
+
+      <h3 class="text-xl font-semibold">2. Using NPM (Recommended)</h3>
+      <pre class="bg-gray-900 text-white p-4 rounded-xl shadow overflow-x-auto">
+npm install -D tailwindcss
+npx tailwindcss init
+      </pre>
+
+      <!-- Section -->
+      <h2 class="text-3xl font-bold">Basic Utility Classes</h2>
+
+      <h3 class="text-xl font-semibold">1. Spacing</h3>
+      <ul class="list-disc ml-6 space-y-2">
+        <li><code class="bg-gray-200 dark:bg-gray-700 px-1 rounded">p-4</code> – padding</li>
+        <li><code class="bg-gray-200 dark:bg-gray-700 px-1 rounded">m-4</code> – margin</li>
+      </ul>
+
+      <h3 class="text-xl font-semibold">2. Colors</h3>
+      <pre class="bg-gray-900 text-white p-4 rounded-xl shadow overflow-x-auto">
+bg-blue-500
+text-red-600
+border-gray-300
+      </pre>
+
+      <h3 class="text-xl font-semibold">3. Flexbox</h3>
+      <pre class="bg-gray-900 text-white p-4 rounded-xl shadow overflow-x-auto">
+flex
+items-center
+justify-between
+gap-4
+      </pre>
+
+      <!-- Section -->
+      <h2 class="text-3xl font-bold">Responsive Design</h2>
+      <p>Tailwind uses breakpoints like:</p>
+      <ul class="list-disc ml-6 space-y-2">
+        <li><strong>sm</strong> – Small devices</li>
+        <li><strong>md</strong> – Medium devices</li>
+        <li><strong>lg</strong> – Large screens</li>
+        <li><strong>xl</strong> – Extra large screens</li>
+      </ul>
+
+      <pre class="bg-gray-900 text-white p-4 rounded-xl shadow overflow-x-auto">
+&lt;div class="text-sm md:text-lg lg:text-2xl"&gt;Responsive Text&lt;/div&gt;
+      </pre>
+
+      <!-- Section -->
+      <h2 class="text-3xl font-bold">Customizing Tailwind</h2>
+      <p>
+        Customize the framework using 
+        <code class="bg-gray-200 dark:bg-gray-700 px-1 rounded">tailwind.config.js</code>.
+      </p>
+
+      <pre class="bg-gray-900 text-white p-4 rounded-xl shadow overflow-x-auto">
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        primary: "#4f46e5",
+      }
+    }
+  }
+}
+      </pre>
+
+
+      <!-- Section -->
+<h2 class="text-3xl font-bold mt-10">Hover, Focus & Active States</h2>
+
+<h3 class="text-xl font-semibold mt-4">1. Hover Effects</h3>
+<pre class="bg-gray-900 text-white p-4 rounded-xl shadow overflow-x-auto">
+hover:bg-blue-600
+hover:text-white
+hover:scale-105
+</pre>
+
+<h3 class="text-xl font-semibold mt-4">2. Focus States</h3>
+<pre class="bg-gray-900 text-white p-4 rounded-xl shadow overflow-x-auto">
+focus:ring
+focus:outline-none
+focus:ring-blue-500
+</pre>
+
+<h3 class="text-xl font-semibold mt-4">3. Active / Pressed Effects</h3>
+<pre class="bg-gray-900 text-white p-4 rounded-xl shadow overflow-x-auto">
+active:scale-95
+active:bg-blue-700
+</pre>
+
+<!-- Section -->
+<h2 class="text-3xl font-bold mt-10">Grid Utilities</h2>
+
+<h3 class="text-xl font-semibold mt-4">1. Basic Grid</h3>
+<pre class="bg-gray-900 text-white p-4 rounded-xl shadow overflow-x-auto">
+grid
+grid-cols-2
+grid-cols-3
+gap-4
+</pre>
+
+<h3 class="text-xl font-semibold mt-4">2. Centering Items</h3>
+<pre class="bg-gray-900 text-white p-4 rounded-xl shadow overflow-x-auto">
+place-items-center
+content-center
+items-center
+</pre>
+
+<!-- Section -->
+<h2 class="text-3xl font-bold mt-10">Shadow & Effects</h2>
+
+<h3 class="text-xl font-semibold mt-4">1. Shadows</h3>
+<pre class="bg-gray-900 text-white p-4 rounded-xl shadow overflow-x-auto">
+shadow
+shadow-md
+shadow-lg
+shadow-xl
+</pre>
+
+<h3 class="text-xl font-semibold mt-4">2. Opacity</h3>
+<pre class="bg-gray-900 text-white p-4 rounded-xl shadow overflow-x-auto">
+opacity-50
+opacity-75
+opacity-100
+</pre>
+
+<!-- Section -->
+<h2 class="text-3xl font-bold mt-10">Dark Mode in Tailwind CSS</h2>
+
+<p class="mt-2">
+Tailwind supports dark mode using the 
+<code class="bg-gray-200 dark:bg-gray-700 px-1 rounded">dark:</code> prefix.
+You can enable it using class or media mode.
+</p>
+
+<h3 class="text-xl font-semibold mt-4">1. Using the <code>dark:</code> Class</h3>
+<pre class="bg-gray-900 text-white p-4 rounded-xl shadow overflow-x-auto">
+&lt;div class="bg-white text-black dark:bg-gray-900 dark:text-white"&gt;
+  Dark Mode Enabled
+&lt;/div&gt;
+</pre>
+
+<h3 class="text-xl font-semibold mt-4">2. Dark Mode Colors</h3>
+<pre class="bg-gray-900 text-white p-4 rounded-xl shadow overflow-x-auto">
+dark:bg-gray-800
+dark:text-gray-200
+dark:border-gray-700
+</pre>
+
+<!-- Section -->
+<h2 class="text-3xl font-bold mt-10">Reusable Button Components</h2>
+
+<p>Tailwind allows creating elegant UI buttons with utility classes.</p>
+
+<h3 class="text-xl font-semibold mt-4">1. Primary Button</h3>
+<pre class="bg-gray-900 text-white p-4 rounded-xl shadow overflow-x-auto">
+&lt;button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 active:scale-95"&gt;
+  Primary Button
+&lt;/button&gt;
+</pre>
+
+<h3 class="text-xl font-semibold mt-4">2. Outline Button</h3>
+<pre class="bg-gray-900 text-white p-4 rounded-xl shadow overflow-x-auto">
+&lt;button class="px-4 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white"&gt;
+  Outline Button
+&lt;/button&gt;
+</pre>
+
+<!-- Section -->
+<h2 class="text-3xl font-bold mt-10">Creating Cards with Tailwind</h2>
+
+<p>Cards are easy to build using padding, shadow, and rounded classes.</p>
+
+<h3 class="text-xl font-semibold mt-4">Example Card</h3>
+<pre class="bg-gray-900 text-white p-4 rounded-xl shadow overflow-x-auto">
+&lt;div class="p-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg"&gt;
+  &lt;h3 class="text-xl font-semibold"&gt;Tailwind Card&lt;/h3&gt;
+  &lt;p class="text-gray-600 dark:text-gray-300"&gt;
+    This is a simple card component using Tailwind utilities.
+  &lt;/p&gt;
+&lt;/div&gt;
+</pre>
+<!-- Section -->
+<h2 class="text-3xl font-bold mt-10">Basic Animations in Tailwind</h2>
+
+<p>Tailwind provides prebuilt animation classes and you can also create custom ones.</p>
+
+<h3 class="text-xl font-semibold mt-4">1. Prebuilt Animations</h3>
+<pre class="bg-gray-900 text-white p-4 rounded-xl shadow overflow-x-auto">
+animate-ping
+animate-spin
+animate-bounce
+animate-pulse
+</pre>
+
+<h3 class="text-xl font-semibold mt-4">2. Example</h3>
+<pre class="bg-gray-900 text-white p-4 rounded-xl shadow overflow-x-auto">
+&lt;div class="w-6 h-6 bg-blue-500 rounded-full animate-bounce"&gt;&lt;/div&gt;
+</pre>
+
+
+
+      
+
+      <h2 class="text-3xl font-bold">Conclusion</h2>
+      <p>
+        Tailwind CSS is growing rapidly because of its simplicity,
+        responsive design, and utility-first structure.
+      </p>
+
+    </div>
+  </div>
+
+  <!-- JS Section -->
+  <script>
+    // SCROLL ANIMATION
+    const ani = document.querySelectorAll(".fade-up, .zoom");
+    function showOnScroll() {
+      ani.forEach(el => {
+        const pos = el.getBoundingClientRect().top;
+        if (pos < window.innerHeight - 60) el.classList.add("show");
+      });
+    }
+    window.addEventListener("scroll", showOnScroll);
+    window.onload = showOnScroll;
+
+    // DARK MODE
+    const bt = document.getElementById("darkToggle");
+    bt.onclick = () => {
+      document.documentElement.classList.toggle("dark");
+      bt.innerText = bt.innerText === "🌙" ? "☀️" : "🌙";
+    };
+  </script>
+
+</body>
+</html>
